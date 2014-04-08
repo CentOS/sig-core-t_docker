@@ -20,7 +20,7 @@ expect_output(){
     then
         printf "Test PASSED\n"
     else
-        printf "Test \'$1\' FAILED: expecting %s\n" $2
+        printf "Test \'%s\' FAILED: expecting %s\n" $1 $2
     fi
     
 }
