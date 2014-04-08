@@ -43,7 +43,7 @@ setup_docker() {
 
 test_get_centos_img() {
     printf "TEST 1: Pulling CentOS image ...\n"
-    docker pull centos
+    expect_output 'docker pull centos' 'Download complete'
 }
 
 test_centos_img_installed(){
