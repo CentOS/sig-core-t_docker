@@ -1,0 +1,7 @@
+#!/bin/sh
+# Build steps used in CentOS CI
+
+yum -y update
+uname -a
+./docker-run_tests.sh
+
