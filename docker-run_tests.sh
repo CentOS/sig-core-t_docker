@@ -13,14 +13,16 @@ expect_output(){
     if [ -z "$2" ]
     then
         printf "We need two args\n"
-        return 98
+        return 2
     fi
     $1 | grep "$2"
     if [ $? -eq 0 ]
     then
         printf "Test PASSED\n"
+        return 0
     else
         printf "Test \'%s\' FAILED: expecting %s\n" $1 $2
+        return 1
     fi
     
 }
