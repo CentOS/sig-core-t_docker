@@ -2,8 +2,8 @@
 # A script to test the official CentOS docker-images.
 # Author: Athmane Madjoudj <athmane@fedoraproject.org>
 
-EPEL6_RELEASE_URL = "http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm"
-EPEL6_GPGKEY_URL = "https://fedoraproject.org/static/0608B895.txt"
+EPEL6_RELEASE_URL="http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm"
+EPEL6_GPGKEY_URL="https://fedoraproject.org/static/0608B895.txt"
 
 enable_epel() {
     yum -y install wget openssh-clients
