@@ -12,16 +12,16 @@ EPEL6_GPGKEY_URL="https://fedoraproject.org/static/0608B895.txt"
 expect_output(){
     if [ -z "$2" ]
     then
-        printf "We need two args\n"
+        printf "expect_output requires two args\n"
         return 2
     fi
-    $1 | grep "$2"
+    $1 | grep -q "$2"
     if [ $? -eq 0 ]
     then
-        printf "Test PASSED\n"
+        printf "==> Test PASSED.\n\n" 
         return 0
     else
-        printf "Test \'%s\' FAILED: expecting %s\n" $1 $2
+        printf "==> Test \'$1\' FAILED: expecting \'$2\'\n\n"
         return 1
     fi
     
@@ -46,6 +46,7 @@ setup_docker() {
 test_get_centos_img() {
     printf "TEST 1: Pulling CentOS image ...\n"
     docker pull centos
+    printf "\n"
 }
 
 test_centos_img_installed(){
@@ -59,10 +60,18 @@ test_centos_img_runcmd() {
     expect_output 'docker run centos cat /etc/centos-release' 'CentOS'
 }
 
+test_centos_img_hostname_match_cont_id() {
+    printf "TEST 4: hostname inside CentOS image matches container id ...\n"
+    hostname_output="`docker run centos hostname`"
+    expect_output 'docker ps -a' "$hostname_output"
+
+}
+
 run_tests() {
     test_get_centos_img
     test_centos_img_installed
     test_centos_img_runcmd
+    test_centos_img_hostname_match_cont_id
 }
 
 # Main
