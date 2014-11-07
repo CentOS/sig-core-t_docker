@@ -1,4 +1,6 @@
-centos-ci-docker-test
-=====================
+CentOS docker test suite
+========================
 
-Tests for the official CentOS docker-images
+CentOS docker test suite is used to test official CentOS docker-images published on Docker registry hub.
+
+https://registry.hub.docker.com/_/centos/
