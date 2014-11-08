@@ -1,0 +1,8 @@
+#!/bin/sh
+# Build steps used in CentOS CI
+# This variant sets env var to use docker 
+# from virt7-testing instead of extra
+
+yum -y update
+uname -a
+SKIP_QA_HARNESS=1 WITH_VIRT7_TESTING=1 ./runtests.sh
