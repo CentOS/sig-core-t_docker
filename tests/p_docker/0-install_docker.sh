@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 # Author: Athmane Madjoudj <athmane@fedoraproject.org>
 
 t_Log "Running $0 - Install docker, some utils and EPEL on CentOS 6"
