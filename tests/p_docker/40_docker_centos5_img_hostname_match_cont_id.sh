@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -x
 # Author: Athmane Madjoudj <athmane@fedoraproject.org>
 
 t_Log "Running $0 - Check if hostname inside CentOS 5 image matches container id"
