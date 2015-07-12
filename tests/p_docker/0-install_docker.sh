@@ -31,6 +31,10 @@ EOF
     fi
 fi
 
+if [ "$WITH_DEBUG" == "1" ] ; then
+	t_Log "Enabling debugging ..."
+	sed -i "s/^OPTIONS=.*/OPTIONS='--selinux-enabled --debug=true  --log-level=debug'/" /etc/sysconfig/docker
+fi
 
 t_Log "Setting up docker "
 
