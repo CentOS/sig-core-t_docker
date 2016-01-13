@@ -7,8 +7,8 @@ echo -e "\n[+] `date` -> CentOS QA $0 starting."
 
 yum -d0 -y install bind-utils 
 
-host repo.centos.qa > /dev/null
-export SKIP_QA_HARNESS=$?
+host repo.centos.qa > /dev/null && : ${SKIP_QA_HARNESS:=0} || : ${SKIP_QA_HARNESS:=1}
+export SKIP_QA_HARNESS
 
 LIB_FUNCTIONS='./tests/0_lib/functions.sh'
 
