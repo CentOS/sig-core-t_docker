@@ -18,10 +18,10 @@ else
         yum-config-manager -q --disable extras > /dev/null
 
 	    t_Log "CentOS 7: Setting up virt7-testing repo"
-        cat > /etc/yum.repos.d/_virt7-testing.repo <<EOF
-[virt7-testing]
-name=virt7-testing
-baseurl=http://cbs.centos.org/repos/virt7-testing/x86_64/os/
+        cat > /etc/yum.repos.d/_virt7-docker-common-candidate.repo <<EOF
+[virt7-docker-common-candidate]
+name=virt7-docker-common-candidate
+baseurl=http://cbs.centos.org/repos/virt7-docker-common-candidate/x86_64/os/
 enabled=1
 gpgcheck=0
 EOF
