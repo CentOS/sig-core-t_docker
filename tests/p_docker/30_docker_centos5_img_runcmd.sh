@@ -3,8 +3,9 @@
 
 t_Log "Running $0 - Running a command inside CentOS 5 image "
 
+t_ExcludeArches "ppc64le"
+
 docker run centos:centos5 cat /etc/redhat-release | grep -q 'CentOS'
 
 
 t_CheckExitStatus $?
-
