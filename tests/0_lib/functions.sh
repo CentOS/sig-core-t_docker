@@ -139,6 +139,29 @@ function t_Assert_Equals
  [ $1 -eq $2 ]
  t_CheckExitStatus $?
 }
+
+# Description: exit with $PASS if the current architecture matches one
+# of the given architectures.  Otherwise, do nothing.  This function
+# can be called at the very beginning of tests so they can be skipped
+# if running on given architectures.
+# Arguments: space-separated list of excluded architectures.
+function t_ExcludeArches
+{
+	excludedArches="$*"
+	currentArch=$(t_GetArch)
+
+	for excludedArch in ${excludedArches}
+	do
+		if [ "${currentArch}" == "${excludedArch}" ]
+		then
+			t_Log "Architecture is excluded, skipping."
+			t_Log "PASS"
+			exit ${PASS}
+		fi
+	done
+}
+
+
 export -f t_Log
 export -f t_CheckExitStatus
 export -f t_InstallPackage
@@ -153,4 +176,5 @@ export -f t_GetArch
 export -f t_CheckForPort
 export -f t_Assert
 export -f t_Assert_Equals
+export -f t_ExcludeArches
 export centos_ver
